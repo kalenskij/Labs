@@ -9,7 +9,6 @@ def fill_bag(capacity, items, n):
                 bag[i][j] = max(bag[i-1][j], items[i-1] + bag[i-1][j-items[i-1]])
             else:
                 bag[i][j] = bag[i-1][j]
-
     return bag[n][capacity]
 
 
