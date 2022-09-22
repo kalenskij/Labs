@@ -1,17 +1,26 @@
 import argparse
 import operator
+import math
+
+
+def calculate(my_oper, *args) -> str:
+    try:
+        operator_func = getattr(operator, my_oper)
+        return operator_func(*args)
+    except AttributeError:
+        try:
+            math_func = getattr(math, my_oper)
+            return math_func(*args)
+        except Exception:
+            return "Error"
+    except ZeroDivisionError:
+        return "Zero Division Error"
+
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("Operator", type=str, nargs="?")
-parser.add_argument("Number1", type=int, nargs="?")
-parser.add_argument("Number2", type=int, nargs="?")
+parser.add_argument("Operator", type=str)
+parser.add_argument("Numbers", type=int, nargs="+")
 args = parser.parse_args()
-try:
-    print(eval("operator." + args.Operator + "(" + str(args.Number1) + ", " + str(args.Number2) + ")"))
-except AttributeError:
-    print("Wrong Operator")
-except ZeroDivisionError:
-    print("Division by zero")
-except TypeError:
-    print("Type error (some arguments maybe missing)")
+
+print(calculate(args.Operator, *args.Numbers))

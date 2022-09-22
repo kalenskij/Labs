@@ -1,26 +1,27 @@
 import argparse
 
 
-def isvalid(line, n):
-    if not line[n].isdigit():
-        if (line[n] == "-" or line[n] == "+") and n != len(line) - 1:
-            if not line[n + 1].isdigit():
-                return False
-        else:
-            return False
-    return True
+def isvalid(line):
+    ind = True
+    if line:
+        for i in range(len(line)):
+            if not line[i].isdigit():
+                if line[i] in ("-", "+") and i not in (len(line)-1, 0):
+                    if not line[i + 1].isdigit():
+                        ind = False
+                        break
+                else:
+                    ind = False
+                    break
+    else:
+        ind = False
+    return ind
 
 
 parser = argparse.ArgumentParser()
 parser.add_argument("line_parsed", nargs="?", type=str)
 args = parser.parse_args()
-ind = False
-if args.line_parsed:
-    ind = True
-if ind:
-    for i in range(0, len(args.line_parsed)):
-        ind = isvalid(args.line_parsed, i)
-if ind:
+if isvalid(args.line_parsed):
     try:
         print("True,", eval(args.line_parsed))
     except SyntaxError:
