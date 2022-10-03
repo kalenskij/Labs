@@ -1,6 +1,6 @@
 class Rectangle:
 
-    def __init__(self, length=1, width=1):
+    def __init__(self, length=1.0, width=1.0):
         self.length = length
         self.width = width
 
@@ -16,7 +16,7 @@ class Rectangle:
     def length(self, length):
         if not isinstance(length, float):
             raise TypeError("Not float")
-        if not 0 <= length <= 20:
+        if not 0 < length <= 20:
             raise ValueError("Wrong value")
         self.__length = length
 
@@ -24,7 +24,7 @@ class Rectangle:
     def width(self, width):
         if not isinstance(width, float):
             raise TypeError("Not float")
-        if not 0 <= width <= 20:
+        if not 0 < width <= 20:
             raise ValueError("Wrong value")
         self.__width = width
 
