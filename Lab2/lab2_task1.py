@@ -3,6 +3,7 @@ class Rectangle:
     def __init__(self, length=1.0, width=1.0):
         self.length = length
         self.width = width
+
     @property
     def length(self):
         return self.__length
