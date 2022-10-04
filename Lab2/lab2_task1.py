@@ -8,10 +8,6 @@ class Rectangle:
     def length(self):
         return self.__length
 
-    @property
-    def width(self):
-        return self.__width
-
     @length.setter
     def length(self, length):
         if not isinstance(length, float):
@@ -19,6 +15,10 @@ class Rectangle:
         if not 0 < length <= 20:
             raise ValueError("Wrong value")
         self.__length = length
+
+    @property
+    def width(self):
+        return self.__width
 
     @width.setter
     def width(self, width):

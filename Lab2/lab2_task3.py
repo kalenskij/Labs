@@ -80,18 +80,6 @@ class Customer:
     def name(self):
         return self.__name
 
-    @property
-    def surname(self):
-        return self.__surname
-
-    @property
-    def patronymic(self):
-        return self.__patronymic
-
-    @property
-    def mobile_number(self):
-        return self.__mobile_number
-
     @name.setter
     def name(self, name):
         if not isinstance(name, str):
@@ -99,6 +87,10 @@ class Customer:
         if not name:
             raise ValueError("Empty name")
         self.__name = name
+
+    @property
+    def surname(self):
+        return self.__surname
 
     @surname.setter
     def surname(self, surname):
@@ -108,6 +100,10 @@ class Customer:
             raise ValueError("Empty surname")
         self.__surname = surname
 
+    @property
+    def patronymic(self):
+        return self.__patronymic
+
     @patronymic.setter
     def patronymic(self, patronymic):
         if not isinstance(patronymic, str):
@@ -115,6 +111,10 @@ class Customer:
         if not patronymic:
             raise ValueError("Empty patronymic")
         self.__patronymic = patronymic
+
+    @property
+    def mobile_number(self):
+        return self.__mobile_number
 
     @mobile_number.setter
     def mobile_number(self, mobile_number):
@@ -135,10 +135,6 @@ class Order:
     def customer(self):
         return self.__customer
 
-    @property
-    def products(self):
-        return self.__products
-
     @customer.setter
     def customer(self, customer):
         if not isinstance(customer, Customer):
@@ -146,6 +142,10 @@ class Order:
         if not customer:
             raise ValueError("Empty customer")
         self.__customer = customer
+
+    @property
+    def products(self):
+        return self.__products
 
     @products.setter
     def products(self, products):

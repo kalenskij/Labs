@@ -14,9 +14,6 @@ class Rational:
     def __str__(self):
         return f"{self.numerator}/{self.denominator}"
 
-    def get_float(self):
-        return self.numerator/self.denominator
-
     def __add__(self, other):
         result_numerator = self.numerator*other.denominator + other.numerator*self.denominator
         result_denominator = self.denominator*other.denominator
@@ -37,8 +34,12 @@ class Rational:
         result_denominator = self.denominator*other.numerator
         return Rational(result_numerator, result_denominator)
 
+    def get_float(self):
+        return self.numerator/self.denominator
 
-a1 = Rational(2, 4)
+
+a1 = Rational(1, 4)
 a2 = Rational(1, 2)
-m = a1 / a2
+m = a1 + a2
 print(m)
+print(m.get_float())

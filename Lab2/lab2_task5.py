@@ -26,22 +26,6 @@ class Student:
     def name(self):
         return self.__name
 
-    @property
-    def surname(self):
-        return self.__surname
-
-    @property
-    def recordbook_num(self):
-        return self.__recordbook_num
-
-    @property
-    def grades(self):
-        return self.__grades
-
-    @property
-    def average(self):
-        return sum(self.grades.values())/len(self.grades)
-
     @name.setter
     def name(self, name):
         if not isinstance(name, str):
@@ -49,6 +33,10 @@ class Student:
         if not name:
             raise ValueError("Empty name")
         self.__name = name
+
+    @property
+    def surname(self):
+        return self.__surname
 
     @surname.setter
     def surname(self, surname):
@@ -58,6 +46,10 @@ class Student:
             raise ValueError("Empty surname")
         self.__surname = surname
 
+    @property
+    def recordbook_num(self):
+        return self.__recordbook_num
+
     @recordbook_num.setter
     def recordbook_num(self, recordbook_num):
         if not isinstance(recordbook_num, int):
@@ -66,14 +58,19 @@ class Student:
             raise ValueError("No record book number")
         self.__recordbook_num = recordbook_num
 
+    @property
+    def grades(self):
+        return self.__grades
+
     @grades.setter
     def grades(self, grades):
         if not all(isinstance(v, int) for v in grades.values()) or not all(2 <= v <= 5 for v in grades.values()):
             raise TypeError("Wrong grade type")
         self.__grades = grades
 
-    def average_mark(self):
-        return sum(item.mark for item in self.grades)/len(self.grades)
+    @property
+    def average(self):
+        return sum(self.grades.values())/len(self.grades)
 
 
 class Group:
