@@ -11,22 +11,6 @@ class Product:
     def price(self):
         return self.__price
 
-    @property
-    def description(self):
-        return self.__description
-
-    @property
-    def length(self):
-        return self.__length
-
-    @property
-    def width(self):
-        return self.__width
-
-    @property
-    def height(self):
-        return self.__height
-
     @price.setter
     def price(self, price):
         if not isinstance(price, float):
@@ -34,6 +18,10 @@ class Product:
         if not price > 0:
             raise ValueError("Value Error")
         self.__price = price
+
+    @property
+    def description(self):
+        return self.__description
 
     @description.setter
     def description(self, description):
@@ -43,6 +31,10 @@ class Product:
             raise ValueError("Empty description")
         self.__description = description
 
+    @property
+    def length(self):
+        return self.__length
+
     @length.setter
     def length(self, length):
         if not isinstance(length, float):
@@ -51,6 +43,10 @@ class Product:
             raise ValueError("Wrong value")
         self.__length = length
 
+    @property
+    def width(self):
+        return self.__width
+
     @width.setter
     def width(self, width):
         if not isinstance(width, float):
@@ -58,6 +54,10 @@ class Product:
         if not 0 <= width <= 20:
             raise ValueError("Wrong value")
         self.__width = width
+
+    @property
+    def height(self):
+        return self.__height
 
     @height.setter
     def height(self, height):
