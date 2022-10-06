@@ -10,7 +10,7 @@ class Rectangle:
 
     @length.setter
     def length(self, length):
-        if not isinstance(length, float):
+        if not isinstance(length, (float,int)):
             raise TypeError("Not float")
         if not 0 < length <= 20:
             raise ValueError("Wrong value")
@@ -22,7 +22,7 @@ class Rectangle:
 
     @width.setter
     def width(self, width):
-        if not isinstance(width, float):
+        if not isinstance(width, (float,int)):
             raise TypeError("Not float")
         if not 0 < width <= 20:
             raise ValueError("Wrong value")
@@ -35,6 +35,6 @@ class Rectangle:
         return (self.length+self.width)*2
 
 
-a = Rectangle(2.0, 5.0)
+a = Rectangle(2.0, 20.0)
 print(a.calculate_area())
 print(a.calculate_perimeter())
