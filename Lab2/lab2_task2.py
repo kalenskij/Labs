@@ -6,13 +6,15 @@ class Rational:
     def __init__(self, numerator=1, denominator=1):
         if not isinstance(numerator, int) or not isinstance(denominator, int):
             raise TypeError("Type Error")
-        self.numerator = numerator//gcd(numerator, denominator)
         if not denominator:
             raise ZeroDivisionError("ZeroDivisionError")
-        self.denominator = denominator//gcd(numerator, denominator)
+        self.numerator = numerator
+        self.denominator = denominator
 
     def __str__(self):
-        return f"{self.numerator}/{self.denominator}"
+        numerator = self.numerator//gcd(self.numerator, self.denominator)
+        denominator = self.denominator//gcd(self.numerator, self.denominator)
+        return f"{numerator}/{denominator}"
 
     def __add__(self, other):
         result_numerator = self.numerator*other.denominator + other.numerator*self.denominator

@@ -78,13 +78,13 @@ class Group:
     def __init__(self, *args: Student):
         self.__students = []
         for student in args:
-            self.__append(student)
+            self.add_student(student)
 
     @property
     def students(self):
         return self.__students
 
-    def __append(self, student):
+    def add_student(self, student):
         if not isinstance(student, Student):
             raise TypeError("Not Student")
         if self.__exists(student) or not len(self.__students) < 20:
@@ -103,4 +103,6 @@ class Group:
 st1 = Student("Oleksandr", "Kalenskyi", 100, Math=5, History=2)
 st2 = Student("Nazar", "Dom", 100, Math=3, History=2)
 group1 = Group(st1, st2)
+st3 = Student("Egor", "Ohtyrka", 100, Math=2, History=5)
+group1.add_student(st3)
 print("".join(map(str, group1.best_five())))
