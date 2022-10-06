@@ -31,7 +31,7 @@ class ProcessFile:
 
     def calculate_sentences(self):
         with open(self.file_name, "r") as file:
-            end_of_sentence = "!.?"
+            end_of_sentence = ("!", ".", "?")
             sentences_num = 0
             ind = 0
             for line in file:
