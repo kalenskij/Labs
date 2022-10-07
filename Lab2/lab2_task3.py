@@ -1,6 +1,13 @@
 class Product:
 
     def __init__(self, price: int, description: str, length: int | float, width: int | float, height: int | float):
+        """
+        :param price: Price of the product
+        :param description: Description of the product
+        :param length: Length of the product
+        :param width: Width of the product
+        :param height: Height of the product
+        """
         self.price = price
         self.description = description
         self.length = length
@@ -28,6 +35,12 @@ class Product:
 class Customer:
 
     def __init__(self, name: str, surname: str, patronymic: str, mobile_number: str | int):
+        """
+        :param name: Name of the customer
+        :param surname: Surname of the customer
+        :param patronymic: Patronymic of the customer
+        :param mobile_number: Customer mobile number
+        """
         self.name = name
         self.surname = surname
         self.patronymic = patronymic
@@ -41,6 +54,10 @@ class Customer:
 class Order:
     
     def __init__(self, customer: Customer, *args: Product):
+        """
+        :param customer: Order's customer
+        :param args: List of products in order
+        """
         self.customer = customer
         self.__products = {}
         for product in args:

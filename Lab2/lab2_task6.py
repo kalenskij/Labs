@@ -1,6 +1,10 @@
 class Product:
     
     def __init__(self, product_code: int, product_price: int):
+        """
+        :param product_code: code of the product
+        :param product_price: price of the product
+        """
         self.product_code = product_code
         self.product_price = product_price
 
@@ -32,6 +36,11 @@ class Product:
 class Node:
 
     def __init__(self, product: Product):
+        """
+        :param product: current value of node
+        left_node: possible lesser value of the node
+        right_node: possible greater value of the node
+        """
         self.left_node = None
         self.product = product
         self.right_node = None

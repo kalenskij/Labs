@@ -12,7 +12,7 @@ class ProcessFile:
     def calculate_chars(self):
         with open(self.file_name, "r") as file:
             not_chars = string.whitespace
-            return sum(len(line) - line.count(char) for char in not_chars for line in file)
+            return sum(len(line) - line.count(char) for char, line in zip(not_chars, file))
 
     def calculate_words(self):
         with open(self.file_name, "r") as file:

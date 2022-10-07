@@ -1,6 +1,12 @@
 class Student:
 
     def __init__(self, name: str, surname: str, recordbook_num: int, **kwargs: int):
+        """
+        :param name: Name of the student
+        :param surname: Surname of the student
+        :param recordbook_num: Record book number of the student
+        :param kwargs: Dictionary that contains subject and marks of the student
+        """
         self.name = name
         self.surname = surname
         self.recordbook_num = recordbook_num
@@ -64,6 +70,9 @@ class Student:
 class Group:
 
     def __init__(self, *args: Student):
+        """
+        :param args: Students in the group
+        """
         self.__students = []
         for student in args:
             self.add_student(student)

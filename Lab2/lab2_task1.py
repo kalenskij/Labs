@@ -1,6 +1,10 @@
 class Rectangle:
 
     def __init__(self, length=1.0, width=1.0):
+        """
+        :param length: Length of the rectangle
+        :param width: Width of the rectangle
+        """
         self.length = length
         self.width = width
 

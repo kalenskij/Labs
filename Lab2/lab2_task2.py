@@ -4,6 +4,10 @@ from math import gcd
 class Rational:
 
     def __init__(self, numerator=1, denominator=1):
+        """
+        :param numerator: Numerator of the rational number
+        :param denominator: Denominator of the rational number
+        """
         if not isinstance(numerator, int) or not isinstance(denominator, int):
             raise TypeError("Type Error")
         if not denominator:
