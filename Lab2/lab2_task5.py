@@ -9,8 +9,8 @@ class Student:
     def __str__(self):
         return f"\n{self.name} {self.surname}:\
                 \nRecord book number: {self.recordbook_num}\
-                \nSubjects: {' '.join(map(str, self.grades))}\
-                \nGrades: {' '.join(map(str, self.grades.values()))}\
+                \nSubjects: {'; '.join(map(str, self.grades))}\
+                \nGrades: {'; '.join(map(str, self.grades.values()))}\
                 \nAverage score: {self.average} \n"
 
     def __eq__(self, other) -> bool:
@@ -33,18 +33,6 @@ class Student:
         if not name:
             raise ValueError("Empty name")
         self.__name = name
-
-    @property
-    def surname(self):
-        return self.__surname
-
-    @surname.setter
-    def surname(self, surname):
-        if not isinstance(surname, str):
-            raise TypeError("Not String")
-        if not surname:
-            raise ValueError("Empty surname")
-        self.__surname = surname
 
     @property
     def recordbook_num(self):
@@ -101,8 +89,8 @@ class Group:
 
 
 st1 = Student("Oleksandr", "Kalenskyi", 100, Math=5, History=2)
-st2 = Student("Nazar", "Dom", 100, Math=3, History=2)
+st2 = Student("Nazar", "Dom", 99, Math=3, History=2)
 group1 = Group(st1, st2)
-st3 = Student("Egor", "Ohtyrka", 100, Math=2, History=5)
+st3 = Student("Egor", "Ohtyrka", 101, Math=2, History=5)
 group1.add_student(st3)
 print("".join(map(str, group1.best_five())))
