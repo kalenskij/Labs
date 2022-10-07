@@ -1,6 +1,6 @@
 class Student:
 
-    def __init__(self, name: str, surname: str, recordbook_num: int, **kwargs):
+    def __init__(self, name: str, surname: str, recordbook_num: int, **kwargs: int):
         self.name = name
         self.surname = surname
         self.recordbook_num = recordbook_num
