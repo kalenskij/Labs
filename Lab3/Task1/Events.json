@@ -1,0 +1,70 @@
+{
+    "events": {
+        "1": {
+            "eventName": "UVC Tournament",
+            "eventDate": "20.11.2022",
+            "ticketPrice": 300,
+            "ticketsAmount": 9,
+            "boughtTickets": {
+                "amount": 1,
+                "1": {
+                    "name": "Oleksandr",
+                    "surname": "Kalenskyi",
+                    "price": 330.0,
+                    "purchase_date": "2022-11-09 20:12:13.246450"
+                }
+            },
+            "discounts": {
+                "advanceTicket": 0.4,
+                "studentTicket": 0.5,
+                "lateTicket": 1.1
+            }
+        },
+        "2": {
+            "eventName": "IT Exhibition",
+            "eventDate": "31.12.2022",
+            "ticketPrice": 250,
+            "ticketsAmount": 8,
+            "boughtTickets": {
+                "amount": 3,
+                "1": {
+                    "name": "Oleksandr",
+                    "surname": "Kalenskyi",
+                    "price": 250,
+                    "purchase_date": "2022-11-09 20:12:20.252838"
+                },
+                "2": {
+                    "name": "Zahar",
+                    "surname": "Domnenko",
+                    "price": 125.0,
+                    "purchase_date": "2022-11-09 20:13:15.687420"
+                }
+            },
+            "discounts": {
+                "advanceTicket": 0.4,
+                "studentTicket": 0.5,
+                "lateTicket": 1.1
+            }
+        },
+        "3": {
+            "eventName": "Programming lesson",
+            "eventDate": "30.04.2023",
+            "ticketPrice": 200,
+            "ticketsAmount": 9,
+            "boughtTickets": {
+                "amount": 1,
+                "1": {
+                    "name": "Oleksandr",
+                    "surname": "Kalenskyi",
+                    "price": 80.0,
+                    "purchase_date": "2022-11-09 20:12:01.243224"
+                }
+            },
+            "discounts": {
+                "advanceTicket": 0.4,
+                "studentTicket": 0.5,
+                "lateTicket": 1.1
+            }
+        }
+    }
+}
