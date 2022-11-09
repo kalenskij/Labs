@@ -26,7 +26,7 @@
             "ticketPrice": 250,
             "ticketsAmount": 8,
             "boughtTickets": {
-                "amount": 3,
+                "amount": 2,
                 "1": {
                     "name": "Oleksandr",
                     "surname": "Kalenskyi",
