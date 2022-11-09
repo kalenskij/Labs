@@ -34,7 +34,7 @@ class Event:
             raise ValueError("No event with such id")
 
     def find_already_bought_ticket(self, id: int):
-        with open("Events.json", "r", encoding="utf-8") as file:
+        with open("boughttickets.json", "r", encoding="utf-8") as file:
             bought_tickets = json.load(file)["events"][self.id]["boughtTickets"]
         if str(id) in bought_tickets:
             ticket = bought_tickets[str(id)]
@@ -52,7 +52,7 @@ class Event:
             raise ValueError("No tickets for this event left")
         event_info["events"][self.id]["ticketsAmount"] -= 1
         with open("Events.json", "w", encoding="utf-8") as file:
-            json.dump(event_info, file)
+            json.dump(event_info, file, indent=4)
         if customer.type == "Student":
             return StudentTicket(self.id)
         elif date_difference >= 60:
@@ -66,12 +66,12 @@ class Event:
 class Ticket:
 
     def __init__(self, event_id):
-        with open("Events.json", "r", encoding="utf-8") as file:
-            event_info = json.load(file)
-        event_info["events"][event_id]["boughtTickets"]["amount"] += 1
-        self.id = event_info["events"][event_id]["boughtTickets"]["amount"]
-        with open("Events.json", "w", encoding="utf-8") as file:
-            json.dump(event_info, file)
+        with open("boughttickets.json", "r", encoding="utf-8") as file:
+            ticket_info = json.load(file)
+        ticket_info["events"][event_id]["boughtTickets"]["amount"] += 1
+        self.id = ticket_info["events"][event_id]["boughtTickets"]["amount"]
+        with open("boughttickets.json", "w", encoding="utf-8") as file:
+            json.dump(ticket_info, file, indent=4)
 
     @property
     def id(self):
@@ -184,23 +184,25 @@ class Payment:
     @staticmethod
     def buy_ticket(customer: Customer, event: Event):
         ticket = event.create_new_ticket(customer)
-        with open("Events.json", "r", encoding="utf-8") as file:
-            event_info = json.load(file)
-        if not event_info["events"][event.id]["boughtTickets"]:
-            event_info["events"][event.id]["boughtTickets"] = {}
-        if str(ticket.id) not in event_info["events"][event.id]["boughtTickets"]:
-            event_info["events"][event.id]["boughtTickets"][str(ticket.id)] = {}
-        event_info["events"][event.id]["boughtTickets"][str(ticket.id)]["name"] = customer.name
-        event_info["events"][event.id]["boughtTickets"][str(ticket.id)]["surname"] = customer.surname
-        event_info["events"][event.id]["boughtTickets"][str(ticket.id)]["price"] = ticket.price
-        event_info["events"][event.id]["boughtTickets"][str(ticket.id)]["purchase_date"] = str(datetime.now())
-        with open("Events.json", "w") as file:
-            json.dump(event_info, file, indent=4)
+        with open("boughttickets.json", "r", encoding="utf-8") as file:
+            ticket_info = json.load(file)
+        if event.id not in ticket_info["events"]:
+            ticket_info["events"][event.id] = {}
+        if "boughtTickets" not in ticket_info["events"][event.id]:
+            ticket_info["events"][event.id]["boughtTickets"] = {}
+        if str(ticket.id) not in ticket_info["events"][event.id]["boughtTickets"]:
+            ticket_info["events"][event.id]["boughtTickets"][str(ticket.id)] = {}
+        ticket_info["events"][event.id]["boughtTickets"][str(ticket.id)]["name"] = customer.name
+        ticket_info["events"][event.id]["boughtTickets"][str(ticket.id)]["surname"] = customer.surname
+        ticket_info["events"][event.id]["boughtTickets"][str(ticket.id)]["price"] = ticket.price
+        ticket_info["events"][event.id]["boughtTickets"][str(ticket.id)]["purchase_date"] = str(datetime.now())
+        with open("boughttickets.json", "w") as file:
+            json.dump(ticket_info, file, indent=4)
 
 
-event1 = Event(2)
+event1 = Event(3)
 customer1 = Customer("Oleksandr", "Kalenskyi", "Regular")
 customer2 = Customer("Zahar", "Domnenko", "Student")
 payment_process = Payment()
-payment_process.buy_ticket(customer2, event1)
-event1.find_already_bought_ticket(2)
+payment_process.buy_ticket(customer1, event1)
+event1.find_already_bought_ticket(1)

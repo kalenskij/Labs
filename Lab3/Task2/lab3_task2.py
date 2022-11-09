@@ -82,7 +82,7 @@ class MeatPizza(Pizza):
 
     def __init__(self):
         super().__init__()
-        self.name = "Chicago Pizza"
+        self.name = "Meat Pizza"
         self.ingredients = ["meat"]
         self.price = 100
 
@@ -91,7 +91,7 @@ class MexicanoPizza(Pizza):
 
     def __init__(self):
         super().__init__()
-        self.name = "Chicago Pizza"
+        self.name = "Mexicano Pizza"
         self.ingredients = ["sausages", "meat"]
         self.price = 105
 
@@ -100,7 +100,7 @@ class BavarPizza(Pizza):
 
     def __init__(self):
         super().__init__()
-        self.name = "Chicago Pizza"
+        self.name = "Bavar Pizza"
         self.ingredients = ["pickles", "meat"]
         self.price = 95
 

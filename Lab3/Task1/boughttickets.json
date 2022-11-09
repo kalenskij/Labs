@@ -1,0 +1,43 @@
+{
+    "events": {
+        "1": {
+            "boughtTickets": {
+                "amount": 1,
+                "1": {
+                    "name": "Zahar",
+                    "surname": "Domnenko",
+                    "price": 150.0,
+                    "purchase_date": "2022-11-10 00:24:45.632298"
+                }
+            }
+        },
+        "2": {
+            "boughtTickets": {
+                "amount": 1,
+                "1": {
+                    "name": "Zahar",
+                    "surname": "Domnenko",
+                    "price": 125.0,
+                    "purchase_date": "2022-11-10 00:24:48.656880"
+                }
+            }
+        },
+        "3": {
+            "boughtTickets": {
+                "amount": 2,
+                "1": {
+                    "name": "Zahar",
+                    "surname": "Domnenko",
+                    "price": 100.0,
+                    "purchase_date": "2022-11-10 00:24:51.793007"
+                },
+                "2": {
+                    "name": "Oleksandr",
+                    "surname": "Kalenskyi",
+                    "price": 80.0,
+                    "purchase_date": "2022-11-10 00:25:33.122178"
+                }
+            }
+        }
+    }
+}
